@@ -27,7 +27,7 @@ def buscar_noticias_financeiras():
 def carregar_dados():
     try:
         # [Sua lógica de extração mantida]
-        SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vREBRr4K4SCh_q1UnZI5P3Byc_jt3hKa-IKENxbxhBwQ__OsL4ip5kCa4cSV3B8eTZHnkjzp5HmwIy-/pub?gid=123758560&single=true&output=csv"
+        SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSvID5Q3Tp7biTamvnU-rsDwVRWPRqJbIcrKRJd4GTrJE05smWhM4eU4TA0MtGqBbfpijtQapRNE6pd/pub?gid=123758560&single=true&output=csv"
         df_raw = pd.read_csv(SHEET_URL, header=None, dtype=str)
         idx_start = df_raw[df_raw.apply(lambda row: row.astype(str).str.contains('Classe', case=False).any(), axis=1)].index[0] + 1
         idx_end = df_raw[df_raw.apply(lambda row: row.astype(str).str.contains('Cofrinho', case=False).any(), axis=1)].index[0]
